@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 
 using Foundation;
 using UIKit;
@@ -25,6 +29,9 @@ namespace DemoAppXamarin.iOS
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            AppCenter.Start("38a675af-0790-41a4-8d6c-623a4ded07ca", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("38a675af-0790-41a4-8d6c-623a4ded07ca", typeof(Push));
 
             return base.FinishedLaunching(app, options);
         }
